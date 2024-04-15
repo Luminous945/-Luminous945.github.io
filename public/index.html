@@ -1,0 +1,49 @@
+<!Doctype html>
+<html lang="">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/favicon.ico">
+    <title>起点工作室</title>
+    <style>
+      
+    </style>
+  </head>
+
+  <body>
+
+    <noscript>
+      <strong>We're sorry but vue_test6 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="app">
+      
+    </div>
+
+  </body>
+  
+  <script>
+    
+    console.log(window.localStorage.getItem("ComProof"));
+
+    if(window.localStorage.getItem("ComProof") === "3"){
+      
+
+    }else if(window.localStorage.getItem("ComProof") > 1 && window.localStorage.getItem("stuName") != null){
+
+      window.localStorage.removeItem("stuName")
+      window.localStorage.removeItem("stuCode")
+      window.location.href = "./html/login.html"
+
+    }else{
+
+      window.localStorage.setItem("ComProof",1)
+      window.location.href = "./html/login.html"
+      // window.location.href = "./html/error.html"
+
+    }
+    
+  </script>
+
+</html> 

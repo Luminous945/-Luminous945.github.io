@@ -1,0 +1,416 @@
+
+
+*{
+	margin:0;
+    padding:0;
+}
+body {
+    margin:0 auto;
+    width:1430px;
+    overflow-x:hidden;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.box {
+    z-index: 10;
+    width: 100%;
+    height: calc(100vh / 15);
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+.container{ 
+    /* background-color: rgba(0, 0, 0, 0); */
+    margin-left: -50px;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+#div1 {
+    background: url(../images/piece/片_01.jpg);
+    transition: left 0.2s linear;
+}
+#div2 {
+    background: url(../images/piece/片_02.jpg);
+    transition: left 1.2s linear;
+}
+#div3 {
+    background: url(../images/piece/片_03.jpg);
+    transition: left 2s linear;
+}
+#div4 {
+    background: url(../images/piece/片_04.jpg);
+    transition: left 2.1s linear;
+}
+#div5 {
+    background: url(../images/piece/片_05.jpg);
+    transition: left 2.5s linear;
+}
+#div6 {
+    background: url(../images/piece/片_06.jpg);
+    transition: left 2.2s linear;
+}
+#div7 {
+    background: url(../images/piece/片_07.jpg);
+    transition: left 2s linear;
+}
+#div8 {
+    background: url(../images/piece/片_08.jpg);
+    transition: left 3.8s linear;
+}
+#div9 {
+    background: url(../images/piece/片_09.jpg);
+    transition: left 2.5s linear;
+}
+#div10 {
+    background: url(../images/piece/片_10.jpg);
+    transition: left 4s linear;
+}
+#div11 {
+    background: url(../images/piece/片_11.jpg);
+    transition: left 5s linear;
+}
+#div12 {
+    background: url(../images/piece/片_12.jpg);
+    transition: left 4.2s linear;
+}
+#div13 {
+    background: url(../images/piece/片_13.jpg);
+    transition: left 5s linear;
+}
+#div14 {
+    background: url(../images/piece/片_14.jpg);
+    transition: left 4.5s linear;
+}
+#div15 {
+    background: url(../images/piece/片_15.jpg);
+    transition: left 10.5s linear;
+}
+#header{
+    width:1430px;
+    color:#fff;
+    height: 138px;
+} 
+#header h2{
+    line-height:40px;
+    height: 40px;
+    line-height:90px;
+    text-align:center;
+    text-shadow: 5px -2px 10px #151518;
+    font-size:55px;
+    font-family:'zi2';
+}
+#header img{
+    position:relative;
+    left:550px;
+    top:20px;
+    border-radius:50px;
+    width:70;
+    height:70px;
+}
+#header p{
+    height:50px;
+    line-height:50px;
+    position:relative;
+    top:-35px;
+    font-family: zi1;
+    text-align:center;
+}
+#left{
+    float:left;
+    height:590px;
+    width:750px;
+   
+    border-radius:45px 5px 5px 5px;
+    margin-left:70px;
+}
+#left #nav1{
+    height:80px;
+    width:750px;
+    background:#fff;
+    border-radius:45px 5px 5px 5px;
+}
+#left #nav1 img{
+    display:inline-block;
+    height:55px;
+    width:55px;
+    position:relative;
+    top:15px;
+    left:35px;
+}
+#left #nav1 img:hover{
+    position:relative;
+    top:13px;
+    transition: 1s;
+    box-shadow: 0px 0px 3px #eee;   
+}
+.mao1 {
+	display:inline-block;
+	width: 60px;
+	height: 60px;
+}
+
+#left #nav1 h2{
+    height:80px;
+    width:50px;
+    display:inline-block;
+   position:relative;
+   left:130px;
+   top:-8px;
+    text-align:center;
+}
+#left h3{
+    display:inline-block;
+    width:200px;
+    height:50px;
+    text-align:center;
+    line-height:50px;
+    position:relative;
+    top:10px;
+    left:405px;
+}
+
+
+#left table.table1 tr th{
+    border:1px solid #ccc;
+    border-left:none;
+    border-top:none;
+    line-height: 35px;
+}
+#left table.table1 tr{
+    height:50px;
+}
+#left table.table1 tr th hr{
+    border:1px solid #ccc;
+}
+#left table.table1 tr td{
+    width:120px;
+    border:1px solid #ccc;
+    text-align:center;
+}
+
+
+.needSign:hover{
+    font-size:20px;  
+    cursor: pointer;
+    background:url("../images/round.png")no-repeat center;
+    background-size:contain;
+}
+/* #left table.table1 tr.tr1 td:hover{
+    cursor: pointer;
+    background:url("../images/round.png")no-repeat center;
+    background-size:contain;
+} */
+.late:hover{
+    cursor: pointer;
+    background:url("../images/wrong.png")no-repeat center;
+    background-size:contain;
+}
+.alreadySign:hover{
+    cursor: pointer;
+    background:url("../images/check.png")no-repeat center;
+    background-size:contain;
+}
+
+
+
+/* #left table.table1 tr.tr1 td a:hover{
+    
+}
+ */
+
+#right{
+    background:rgba(255, 255, 255, 0.5);
+    float:left;
+    width:480px;
+    height:590px;
+    border-radius:5px 45px 5px 5px;
+    margin-left:60px;
+    overflow-x:hidden;
+}
+#right #nav2{
+    height:80px;
+    width:480px;
+    background:#fff;
+    border-radius:5px 45px 5px 5px;
+}
+#right #nav2 h2{
+    height:50px;
+    line-height:50px;
+    width:150px;
+    display:inline-block;
+    text-align:center;
+    margin-left:30px;
+    position:relative;
+    top:-8px;
+    cursor: pointer;
+    color:#151518;
+}
+#right #nav2 h2.current{
+    border-bottom:2px solid #FFF424;
+
+}
+#right #nav2 h3{
+    height:100px;
+    width:60px;
+    line-height:100px;
+    display:inline-block;
+    text-align:center;
+    margin-left:50px;
+    cursor: pointer;
+}
+#right #nav2  h3 img{
+    position:relative;
+    top:15px;
+    left:75px;
+    height:55px;
+    width:55px;
+    line-height:100px;
+    animation: entn 2s linear 0s infinite
+}
+#right #nav2  h3 img:hover{
+    position:relative;
+    top:13px;
+    transition: 1s;
+    box-shadow: 0px 0px 3px #eee;   
+}
+#right ul {
+    height:400px;
+    width:440px;
+    margin-top:20px;
+    overflow-x:hidden;
+}
+#right ul li{
+    height:450px;
+    width:440px;
+    display:none;
+    margin-left:18px;
+    overflow:scroll;
+}
+#right ul li.current{
+    display:block;
+}
+#right ul table.table2{
+    width:440px;   
+}
+#right ul li p{
+    display:inline-block;
+    font-size:15px;
+    height:20px;
+    line-height:22px;
+    width:378px;
+    margin-left:25px;  
+}
+#right ul li p img{
+    display:inline-block;
+    font-size:100px;
+    color:#FFF424;
+    height:45px;
+    width:45px;
+    position:relative;
+    left:-7px;
+    top:14px;
+}
+.yellow{  
+    animation: rotate 3s linear infinite;
+} 
+@keyframes rotate{
+	0%{
+		transform: rotateZ(0deg);/*从0度开始*/
+	}
+	100%{
+		transform: rotateZ(360deg);/*360度结束*/
+	}
+}
+#right ul table.table2 tr th{
+    border:1px solid #ccc;
+    width:205px;
+    border-left:none;
+    border-top:none;
+    line-height: 40px;
+    text-align:center;
+}
+#right ul table.table2 tr td{
+    width:205px;
+    border:1px solid #ccc;
+    text-align:center;
+}
+#right h4{
+    display:inline-block;
+    border-radius:50%;
+    width:55px;
+    height:55px;
+    text-align:center;
+    line-height:55px;
+    background:url("../images/mao111.png")no-repeat center;
+    background-size:contain;
+    position:relative;
+    top:20px;
+    left:395px;
+}
+#right h4:hover{
+    background:url("../images/mao11.png")no-repeat center;
+    background-size:contain;
+}
+/*#footer{
+    width:1430px;
+    height:40px;
+    float:left;
+    position:relative;
+    top:28px;
+} 
+#footer ul{
+    margin:0 auto;
+    width:1350px;
+    height:40px;
+    border-top:2px solid #252E4D;
+}   
+#footer ul li{
+    margin-top:-1px;
+    width:260px;
+    border-right:2px solid #252E4D;
+    line-height:40px;
+    text-align:center;
+    display:inline-block;
+    font-family:"zi4";
+    font-weight:bold;
+    font-size:20px;
+    height:40px;
+    color:#252E4D;
+}
+#footer ul li a{
+     height:40px;
+    line-height:40px;
+    color: #EA7493;
+    font-weight:normal;
+    font-family: myFont1;
+}
+#footer ul li.last{
+    border-right:none;
+}
+#footer ul li p{
+    text-align:center;
+    display:inline-block;
+    width:110px;
+    height:38px;
+    line-height:38px;
+    position:absolute;
+    top:4px;
+    left:200px;
+}*/
+
+#footer{
+    opacity:0.2;
+    overflow:hidden;
+    padding:0;
+    left:0px;
+    background-color:transparent!important;
+    width:100%;
+    height:200px;
+    z-index:99;
+    margin:0px auto; 
+    text-align:center;
+    position: relative;
+}
+#footer p{
+        display: none;
+}

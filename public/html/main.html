@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>起点</title>
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!-- 引入样式 -->
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+
+    <!-- 引入组件库 -->
+    <link rel="stylesheet" href="../plugins/element-ui/index.css">
+    <script src="../plugins/element-ui/index.js"></script>
+<link href="../css/main.css" rel="stylesheet" type="text/css">
+<style>
+    span {
+        position: absolute;
+        user-select: none;
+        font-size: 20px;
+        font-family:hao;
+        font-weight:bold;
+    }
+
+    @font-face {
+            font-family: 'hao';
+            src: url(../fonts/22.ttf);
+        }
+    @font-face{
+        font-family:'zi1';
+        src:url(../fonts/Bear-hard-candy-2.ttf);
+    } 
+     @font-face {
+            font-family: 'zi2';
+            src: url(../fonts/SanJiKaiShu-2.ttf);
+    }
+    @font-face {
+            font-family: 'zi3';
+            src: url(../fonts/WoXiangJianNiBuLunTianQi-2.ttf);
+    }
+    @font-face {
+            font-family: 'zi4';
+            src: url(../fonts/hanyialitijian.ttf);
+    }
+    body {
+            background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
+            background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+            background-attachment: fixed;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+            }
+
+            100% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+            }
+        }
+
+        #stars {
+            transform: perspective(500px);
+            transform-style: preserve-3d;
+            position: fixed;
+            perspective-origin: 50% 100%;
+            left: 50%;
+            animation: rotate 66s infinite linear;
+            bottom: 0;
+            z-index: -99;
+        }
+
+        .star {
+            width: 2px;
+            height: 2px;
+            background: #f7f7b8;
+            position: fixed;
+            top: 0px;
+            left: 0;
+            backface-visibility: hidden;
+        }
+</style>
+
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="../js/main.js"></script>
+</head>
+
+<body>
+        <div class="box" id="div1"></div>
+        <div class="box" id="div2"></div>
+        <div class="box" id="div3"></div>
+        <div class="box" id="div4"></div>
+        <div class="box" id="div5"></div>
+        <div class="box" id="div6"></div>
+        <div class="box" id="div7"></div>
+        <div class="box" id="div8"></div>
+        <div class="box" id="div9"></div>
+        <div class="box" id="div10"></div>
+        <div class="box" id="div11"></div>
+        <div class="box" id="div12"></div>
+        <div class="box" id="div13"></div>
+        <div class="box" id="div14"></div>
+        <div class="box" id="div15"></div>  
+    <div id="header">
+    <h2>起点工作室欢迎您!</h2> 
+    <img src="../images/logo2.png"opacity>
+    <p id="clock" type="button"v-waves></p>
+    <embed src="../images/mao2222.png" style="width:120p;height:120px;display:inline-block;position:relative;top:-145px;left:1150px;">
+   </div>
+
+    <div id="left">
+
+        <div id="nav1">
+            <div class="mao1">
+                <img src="../images/猫.png" alt="tubiao"class="img">
+            </div>
+
+            <h2>签到</h2>
+            <h3>𓆡𓆝𓆟𓆜𓆞𓆝</h3>
+        </div>
+
+        <div id="sign" >
+
+            <el-table 
+                :data="tableData"
+                :border="false"
+
+                >
+                
+                <el-table-column
+                    prop="classToClass"
+                    label="签到时间 / 星期"
+                    width="160">
+                    <template slot-scope="scope">
+                        <span style="margin-top: -9px;" v-if="scope.row.classToClass === '1-2' ">7:40 - 8:00</span>
+                        <span style="margin-top: -9px;" v-if="scope.row.classToClass === '3-4' ">9:40 - 10:00</span>
+                        <span style="margin-top: -9px;" v-if="scope.row.classToClass === '5-6' ">13:10 - 13:30</span>
+                        <span style="margin-top: -9px;" v-if="scope.row.classToClass === '7-8' ">14:40 - 15:00</span>
+                        <span style="margin-top: -9px;" v-if="scope.row.classToClass === '9-10' ">16:40 - 17:00</span>
+                    </template>
+                </el-table-column>
+
+
+                <el-table-column
+                    prop="monday"
+                    label="星期一"
+                    width="120">
+                    <template slot-scope="scope">
+                        <div class="container" v-if="scope.row.monday === 1" style="font-size:19px;height: 67px;"> 无需签到</div>
+                        <div class="container" v-else-if="scope.row.monday === 2" style="height: 67px"><el-button icon="el-icon-check" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.monday === 3" style="height: 67px"><el-button icon="el-icon-close" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.monday === 4" style="font-size:19px;height: 67px;">未签</div>
+                        <div class="container" v-else-if="scope.row.monday === 5" style="font-size:19px;height: 67px;">迟到</div>
+                        <div class="container" v-else-if="scope.row.monday === 0" style="height: 67px" ><el-button icon="el-icon-help" @click="sign(scope.row,'monday')" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                    </template>
+                </el-table-column>
+
+                <el-table-column
+                    prop="tuesday"
+                    label="星期二"
+                    width="120">
+                    <template slot-scope="scope">
+                        <div class="container" v-if="scope.row.tuesday === 1" style="font-size:19px;height: 67px;"> 无需签到</div>
+                        <div class="container" v-else-if="scope.row.tuesday === 2"style="height: 67px" ><el-button icon="el-icon-check" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.tuesday === 3"style="height: 67px" ><el-button icon="el-icon-close" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.tuesday === 4" style="font-size:19px; height: 67px;">未签</div>
+                        <div class="container" v-else-if="scope.row.tuesday === 5" style="font-size:19px;height: 67px;">迟到</div>
+                        <div class="container" v-else-if="scope.row.tuesday === 0" style="height: 67px"><el-button icon="el-icon-help" @click="sign(scope.row,'tuesday')" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                    </template>
+                </el-table-column>
+
+                <el-table-column
+                    prop="wednesday"
+                    label="星期三"
+                    width="120">
+                    <template slot-scope="scope">
+                        <div class="container" v-if="scope.row.wednesday === 1" style="font-size:19px;height: 67px;"> 无需签到</div>
+                        <div class="container" v-else-if="scope.row.wednesday === 2" style="height: 67px" ><el-button icon="el-icon-check" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.wednesday === 3" style="height: 67px"><el-button icon="el-icon-close" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.wednesday === 4" style="font-size:19px;height: 67px;">未签</div>
+                        <div class="container" v-else-if="scope.row.wednesday === 5" style="font-size:19px;height: 67px;">迟到</div>
+                        <div class="container" v-else-if="scope.row.wednesday === 0" style="height: 67px"><el-button icon="el-icon-help" @click="sign(scope.row,'wednesday')"style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                    </template>
+                </el-table-column>
+
+                <el-table-column
+                    prop="thursday"
+                    label="星期四"
+                    width="120">
+                    <template slot-scope="scope">
+                        <div class="container" v-if="scope.row.thursday === 1" style="font-size:19px;height: 67px;"> 无需签到</div>
+                        <div class="container" v-else-if="scope.row.thursday === 2" style="height: 67px" ><el-button icon="el-icon-check" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.thursday === 3" style="height: 67px"><el-button icon="el-icon-close" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.thursday === 4" style="font-size:19px;height: 67px;">未签</div>
+                        <div class="container" v-else-if="scope.row.thursday === 5" style="font-size:19px;height: 67px;">迟到</div>
+                        <div class="container" v-else-if="scope.row.thursday === 0" style="height: 67px"><el-button icon="el-icon-help" @click="sign(scope.row,'thursday')" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                    </template>
+                </el-table-column>
+
+                <el-table-column
+                    prop="friday"
+                    label="星期五"
+                    width="110">
+                    <template slot-scope="scope">
+                        <div class="container" v-if="scope.row.friday === 1" style="font-size:19px;height:68px;margin-left: -38px;"> 无需签到</div>
+                        <div class="container" v-else-if="scope.row.friday === 2" style="height: 68px"><el-button icon="el-icon-check" style="background-color: rgb(255,255,255,.5);" ></el-button></div>
+                        <div class="container" v-else-if="scope.row.friday === 3" style="height: 68px"><el-button icon="el-icon-close" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                        <div class="container" v-else-if="scope.row.friday === 4" style="font-size:19px;height: 68px;margin-left: -38px;">未签</div>
+                        <div class="container" v-else-if="scope.row.friday === 5" style="font-size:19px;height: 67px;">迟到</div>
+                        <div class="container"  v-else-if="scope.row.friday === 0" style="height: 68px"><el-button icon="el-icon-help" @click="sign(scope.row,'friday')" style="background-color: rgb(255,255,255,.5);"></el-button></div>
+                    </template>
+                </el-table-column>
+
+            </el-table>  
+
+        </div>
+
+    </div>
+
+    <div id="right">
+        <div id="nav2">     
+            <h2 class="current"><a>制度</a></h2><h2><a>本周迟到记录</a></h2><h3><img src="../images/logo.png" style="margin-left:-180px;" alt="tubiao"></h3>
+        </div>
+
+        <ul>
+            <li class="current">
+                <p><img src="../images/yellow.png"class="yellow">学习时间内，工作室内任何人不要从事影响工作室成员学习的活动，诸如玩游戏、看电影、看娱乐视频等。</p>
+                <p><img src="../images/yellow.png"class="yellow">工作室内不得大声喧哗，工作时间内更要保持安静，讨论问题尽量不要影响他人，需要讨论的话可以到室外进行，不得影响工作室其他成员，一般事情推荐用QQ消息。</p>
+                <p><img src="../images/yellow.png"class="yellow">工作室内不得当众大声指责其他成员，任何人不具有此项特权。不得口无遮拦毫无顾忌，注意文明用语，坚决杜绝个人不雅口头禅与粗俗用语。</p>
+                <p><img src="../images/yellow.png"class="yellow">例会时间为每周五晚上19:00 (如有变动则另行通知)，19:05 之前请务必到达会场，任何人不得无故迟到，更不能无故缺席，有事至少提前一个小时请假。</p>
+                <p><img src="../images/yellow.png"class="yellow">工作室内不得谈论过多与学习工作无关的事情，切勿将个人消极情绪带至工作室。</p>
+                <p><img src="../images/yellow.png"class="yellow">工作室内的一切固定(桌椅、书籍等)与非固定(软件、代码、文档等)资产均属于公共财产，归全体成员所有，任何人不得以任何理由公开或私下占有、变卖、丢弃、传播。资产的处理需由全体成员讨论通过方可进行。</p>
+                <p><img src="../images/yellow.png"class="yellow">其他，除以上所列之外，工作室成员不得做其他影响其他成员学习以及破坏工作室良好学习环境的事情，请大家遵守。</p>
+                <p><img src="../images/yellow.png"class="yellow">每周例会工作室成员需要做上周总结，上周的学习感悟，下周的学习计划。</p>
+                <p><img src="../images/yellow.png"class="yellow">不得无故旷工，有事向组长请假(每周请假不可超过三次)。</p>
+                <p><img src="../images/yellow.png"class="yellow">如果某人违反工作室制度超过3次(3个月内),则希望该成员主动退出工作室。</p>
+  
+            </li>
+
+            <li> 
+                <div id="lateRecord"> 
+                    <el-table
+                    :data="LateOneInf"
+                    >
+                        <el-table-column
+                            prop="stuName"
+                            label="学生姓名"
+                            width="110"
+                            class="lateInf">
+                        </el-table-column>
+            
+                        <el-table-column
+                            prop="dayWeek"
+                            label="周数"
+                            width="110"
+                        >
+                        </el-table-column>
+            
+                        <el-table-column
+                            prop="classToClass"
+                            label="节次"
+                            width="100"
+                            class="lateInf">
+                        </el-table-column>
+            
+                        <el-table-column
+                            prop="conditions"
+                            label="原因"
+                            width="100"
+                            class="lateInf">
+                        </el-table-column>
+                        
+                    </el-table>
+                </div>  
+            </li>
+        </ul> 
+
+        <h4></h4>
+
+    </div>
+
+
+    <div id="footer">
+        <div class="footer">
+            <div id="jsi-flying-fish-container"></div>
+        </div> 
+    </div>
+
+    <!-- 底部小鱼 -->
+    <script src='../js/fish.js'></script>
+    <style type="text/css">
+    #footer{opacity:0.2;overflow:hidden;padding:0;margin:0 auto;left:0px;background-color:transparent!important;width:100%;height:200px;z-index:10; margin:0px auto; text-align:center;}
+    #footer p{display: none;}
+
+    </style>
+
+    <div id="stars">
+    </div>
+    <!-- 星星JQ -->
+    <script>
+        (function () {
+            let starsCount = 800; //星星数量
+            let distance = 800;//间距
+            let parentStarts = document.getElementById("stars");
+            for (let i = 0; i < starsCount; i++) {
+                let childStart = document.createElement("div");
+                childStart.setAttribute("class", 'star');
+                parentStarts.appendChild(childStart);
+            }
+            for (let i = 0; i < starsCount; i++) {
+                let item = parentStarts.children[i];
+                let speed = 0.2 + (Math.random() * 1);
+                let thisDistance = distance + (Math.random() * 300);
+                item.style.transformOrigin = "0 0 " + thisDistance + "px";
+                item.style.transform = "translate3d(0,0,-" + thisDistance + "px) rotateY(" + (Math.random() * 360) + "deg) rotateX(" + (Math.random() * -50) + "deg) scale(" + speed + "," + speed + ")";
+            }
+        })();
+    </script>
+
+    <!-- 点击炸开烟花特效 -->
+    <script src="../js/cursor-effects.js"></script>
+    <div width="1366" height="662" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></div>
+
+    <!-- 回到顶部 -->
+    <script type="text/javascript">
+        $(function(){$(window).scroll(function(){var scroHei=$(window).scrollTop();if(scroHei>10){$(".back-to-top").css("top","-360px")}else{$(".back-to-top").css("top","-999px")}});$(".back-to-top").click(function(){$("body,html").animate({scrollTop:0,},600)})});
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../css/szgotop.css" />
+    <div class="back-to-top cd-top faa-float animated cd-is-visible" style="top:-999px;"></div>
+
+
+
+    <script>
+        new Vue({
+            el:'#sign',
+
+            data() {
+                return {
+                tableData: [],
+               
+                clickCount:0,
+                }
+            },
+
+            mounted(){
+                this.$message.success("欢迎" + window.localStorage.getItem("stuName") + "同学来到工作室!")
+                this.getTimeTable();
+            },
+
+            methods:{
+
+                getTimeTable(){
+                    axios.get("/stuTableTime/"+window.localStorage.getItem('stuCode')).then((res)=>{
+                        this.tableData = res.data.data
+                    })
+                },
+
+                sign(row,day){
+                    this.clickCount++
+                    if(this.clickCount >= 3){
+                        if(this.clickCount > 3 && this.clickCount <= 6){
+                            if(this.clickCount !== 6){
+                                this.$message.warning("请勿点击多次!!!")
+                            }
+                            if(this.clickCount === 6){
+                                this.$message.warning("十秒后才能点击!!!")
+                            }
+                            setTimeout(()=>{
+                                this.clickCount = 0
+                            },10000)
+                        }
+                    }else if(this.clickCount <= 3){
+                        
+                        axios.put("/stuTableTime/"+day,row).then((res)=>{
+                            if(res.data.code === 202381){
+                                this.$message.success(res.data.data)
+                                this.getTimeTable();
+                                axios.get("/signRecord/"+window.localStorage.getItem('stuName')).then(()=>{
+                                })
+                            }else{
+                                this.$message.error(res.data.data)
+                            }
+                        })
+                    }
+                },
+
+   
+            }
+        })
+
+
+        new Vue({
+            el:'#lateRecord',
+            data() {
+                return {
+                    LateOneInf:[],
+                }
+            },
+            mounted() {
+                this.getLateRecord();
+            },
+            methods: {
+                getLateRecord(){
+                    axios.get("/lateRecord/"+window.localStorage.getItem('stuCode')).then((res)=>{
+                        if(res.data.code === 202391){
+                            console.log(res);
+                            this.LateOneInf = res.data.data
+                        }else{
+                            console.log("当前还未有未签和迟到记录!请保持哦!")
+                            this.$message.info("当前还未有未签和迟到记录!请保持哦!")
+                        }
+                    })
+                },
+            },
+
+        })
+    </script>
+
+</body>
+
+
+<style lang="scss" scoped>
+    #sign .el-table,.el-table__expanded-cell{
+        background-color: transparent;
+        /* color: #606266; */
+    }
+
+    #sign .el-table th,
+    #sign .el-table tr,
+    #sign .el-table td{
+        background: rgba(255, 255, 255, 0.3) !important;
+        color: #606266;
+        user-select: none;
+        font-family:hao;
+        font-weight:bold; 
+        font-size: 19px;
+    }
+
+    #lateRecord .el-table,.el-table__expanded-cell{
+        background-color: transparent;
+        /* color: #606266; */
+    }
+    #lateRecord .el-table th,
+    #lateRecord .el-table tr,
+    #lateRecord .el-table td{
+        background: rgba(255, 255, 255, 0) !important;
+        color: #606266;
+        user-select: none;
+        font-family:hao;
+        font-weight:bold; 
+        font-size: 20px;
+
+    }
+
+    #lateRecord{
+        margin-left: 4px;
+    }
+    
+</style>
+
+
+</html>
+
